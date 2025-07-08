@@ -122,7 +122,7 @@ button:hover {
     color: #22c55e; /* Green for unlocked status */
 }
 
-/* NEW: Full-screen Lockdown Overlay Styles */
+/* Full-screen Lockdown Overlay Styles */
 #lockdown-overlay {
     position: fixed; /* Fixed to viewport */
     top: 0;

@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlayMessageBox = document.getElementById('overlay-message-box');
 
     const API_BASE_URL = 'http://127.0.0.1:5000';
+    const SIMULATED_EMAIL = 'decryption.key@example.com'; // Simulated email for key delivery
 
     let isLockedDown = false; // State variable to track lockdown status
 
@@ -303,7 +304,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 const data = await response.json();
                 if (data.success && data.decryption_key) {
-                    generatedKeyDisplay.textContent = `Decryption Key: ${data.decryption_key}`;
+                    // Key is obtained, but not displayed directly
+                    generatedKeyDisplay.textContent = `Decryption key sent to ${SIMULATED_EMAIL}.`;
                     showMessage(data.message, 'success');
                 } else {
                     showMessage(data.message || 'Failed to get decryption key.', 'error');
@@ -339,8 +341,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 const data = await response.json();
                 if (data.success && data.decryption_key) {
-                    overlayDecryptionKeyInput.value = data.decryption_key; // Auto-fill key
-                    showOverlayMessage(`Key obtained: ${data.decryption_key}. Now click Decrypt Files.`, 'success');
+                    // Key is obtained, but not auto-filled or displayed directly on overlay
+                    // User is informed it's "sent via email" and still needs to manually enter it.
+                    showOverlayMessage(`Decryption key sent to ${SIMULATED_EMAIL}. Please enter it manually.`, 'success');
                 } else {
                     showOverlayMessage(data.message || 'Failed to get decryption key.', 'error');
                 }

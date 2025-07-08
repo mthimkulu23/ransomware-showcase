@@ -22,7 +22,7 @@ CORS(app)
 
 # The "decryption key" for our simulation (can be updated by generate-key endpoint)
 # This key will be stored on the backend and only revealed after simulated payment.
-SIMULATION_DECRYPTION_KEY = "SECUREKEY123" # Initial key for first run
+SIMULATION_DECRYPTION_KEY = "SUPERSECUREANDVERYLONGKEYFORSIMULATIONPURPOSESONLY1234567890ABCDEF" # Updated to a longer key
 
 # A simple, fixed key byte for XOR "encryption" for demonstration.
 # This is NOT secure encryption and is for simulation only.
@@ -127,7 +127,7 @@ def simulate_encrypt():
     Simulates the encryption of files in TARGET_FILES_DIR.
     Reads file content, applies a simple XOR, overwrites, and renames.
     """
-    global SIMULATION_DECRYPTION_KEY # Ensure this is accessible if needed, though not directly modified here
+    global SIMULATION_DECRYPTION_KEY
     files_to_encrypt = get_current_simulated_files()
     encrypted_count = 0
     for file_info in files_to_encrypt:
